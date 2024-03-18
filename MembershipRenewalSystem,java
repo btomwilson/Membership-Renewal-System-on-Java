@@ -1,0 +1,32 @@
+package com.membershiprenewal;
+
+import com.membershiprenewal.model.Member;
+import com.membershiprenewal.model.MembershipType;
+
+import java.time.LocalDate;
+
+public class MembershipRenewalSystem {
+    public static void main(String[] args) {
+        Member member1 = new Member("John Doe", LocalDate.now(), MembershipType.ANNUAL);
+        Member member2 = new Member("Jane Smith", LocalDate.now(), MembershipType.MONTHLY);
+
+        System.out.println("Before Renewal:");
+        displayMemberInfo(member1);
+        displayMemberInfo(member2);
+
+        // Simulating renewal for 1 year
+        member1.renewMembership(1);
+        member2.renewMembership(1);
+
+        System.out.println("\nAfter Renewal:");
+        displayMemberInfo(member1);
+        displayMemberInfo(member2);
+    }
+
+    private static void displayMemberInfo(Member member) {
+        System.out.println("Name: " + member.getName());
+        System.out.println("Membership Type: " + member.getMembershipType());
+        System.out.println("Expiry Date: " + member.getExpiryDate());
+        System.out.println();
+    }
+}
